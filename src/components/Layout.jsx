@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 
 import Navbar from './Navbar'
+import Footer from './Footer'
 
 const Layout = ({ children, page, blogName }) => {
   return (
@@ -15,6 +16,7 @@ const Layout = ({ children, page, blogName }) => {
           {children}
         </div>
       </main>
+      <Footer />
     </>
   )
 }

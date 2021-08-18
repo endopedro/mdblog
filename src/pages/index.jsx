@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <Layout blogName="Minimalister">
       <Hero className="mt-7 mb-10" />
-      <div className="grid md:grid-cols-2 md:gap-10">
+      <div className="grid md:grid-cols-2 md:gap-10 mb-0 md:mb-10">
         {[1, 2, 3].map((item) => (
           <PostCard className="mb-10 md:mb-0" />
         ))}
