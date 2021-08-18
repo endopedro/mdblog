@@ -3,9 +3,9 @@ import React from 'react'
 const Hero = ({ className }) => {
   return (
     <div className={className}>
-      <div className="h-64 bg-white relative flex items-end">
+      <div className="h-64 relative flex items-end">
         <img
-          className="object-cover h-full w-full absolute"
+          className="object-cover h-full w-full absolute opacity-30"
           src="https://picsum.photos/800/500"
         />
         <div className="relative w-full h-full p-5 flex justify-end flex-col">
