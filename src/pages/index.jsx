@@ -3,6 +3,7 @@ import React from 'react'
 import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import PostCard from '../components/PostCard'
+import SubFooter from '../components/SubFooter'
 
 const Home = () => {
   return (
@@ -13,6 +14,8 @@ const Home = () => {
           <PostCard className="mb-10 md:mb-0" />
         ))}
       </div>
+      <hr className="border-t border-woodsmoke-400 mb-8" />
+      <SubFooter className="sm:mb-8" />
     </Layout>
   )
 }
