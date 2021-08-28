@@ -10,9 +10,9 @@ const Layout = ({ children, page, blogName }) => {
       <Head>
         <title>{blogName}</title>
       </Head>
-      <main>
+      <main className="relative">
         <Navbar page={page} blogName={blogName} />
-        <div className="container mx-auto md:px-2 lg:px-8 max-w-4xl">
+        <div className="container mx-auto md:px-2 lg:px-8 max-w-4xl pt-14 sm:pt-16">
           {children}
         </div>
       </main>
