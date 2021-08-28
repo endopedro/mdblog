@@ -3,11 +3,14 @@ import React from 'react'
 const PostCard = ({ className }) => {
   return (
     <div className={className}>
-      <img
-        className="h-40 w-full object-cover"
-        src="https://picsum.photos/400"
-        alt=""
-      />
+      <div className="h-40 w-full relative">
+        <img
+          className="h-full w-full object-cover"
+          src="https://picsum.photos/400"
+          alt=""
+        />
+        <div className="absolute h-full w-full top-0 bg-black opacity-0 hover:opacity-50 transition duration-300 ease-in-out" />
+      </div>
       <div className="bg-woodsmoke-500 py-5 px-7 shadow">
         <p className="uppercase text-xs font-semibold text-gray-500 mb-3">
           October 31, 2018
