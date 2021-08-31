@@ -10,7 +10,7 @@ const SubFooter = ({ className }) => {
       </h3>
       <div className="grid md:grid-cols-2 md:gap-10">
         {[1, 2].map((item) => (
-          <PostCard key={item} md className="mb-10 md:mb-0" />
+          <PostCard key={item} sm className="mb-10 md:mb-0" />
         ))}
         {[1, 2].map((item) => (
           <PostCard key={item} sm className="mb-10 md:mb-0" />
