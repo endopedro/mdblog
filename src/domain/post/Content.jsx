@@ -8,7 +8,7 @@ const Content = () => {
   const markdown = `[Pica Pau Rachador](https://www.youtube.com/watch?v=M1MnwG8iot8)`
 
   return (
-    <div className="bg-woodsmoke-500 p-7 mb-10">
+    <div className="bg-woodsmoke-500 px-4 py-7 md:p-7 mb-10">
       <div className="flex mb-3">
         <p className="text-xs text-gray-500 mr-4">
           on <b>OCTOBER 5, 2018</b>
@@ -40,7 +40,7 @@ const Content = () => {
       </div>
       <div className="flex items-center">
         <img
-          className="rounded-full h-20 w-20 object-cover mr-2"
+          className="rounded-full h-16 w-16 md:h-20 md:w-20 border border-woodsmoke-50 object-cover mr-2"
           src="https://picsum.photos/100"
           alt=""
         />
