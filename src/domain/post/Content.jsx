@@ -4,7 +4,7 @@ import { BiPurchaseTag } from 'react-icons/bi'
 
 import mdComponents from '../../utils/mdComponents'
 
-const Content = () => {
+const Content = ({ content }) => {
   const markdown = `[Pica Pau Rachador](https://www.youtube.com/watch?v=M1MnwG8iot8)`
 
   return (
@@ -25,7 +25,7 @@ const Content = () => {
         Image post format with pagination
       </h1>
 
-      <ReactMarkdown components={mdComponents}>{markdown}</ReactMarkdown>
+      <ReactMarkdown components={mdComponents}>{content}</ReactMarkdown>
 
       <hr className="border-woodsmoke-200 my-5" />
 
