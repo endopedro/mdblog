@@ -11,4 +11,7 @@ module.exports = {
     CLOUDINARY_ASSETS_FOLDER: process.env.CLOUDINARY_ASSETS_FOLDER,
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
   },
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
 }
