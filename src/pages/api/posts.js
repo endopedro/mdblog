@@ -7,7 +7,26 @@ const handler = async (req, res) => {
     const db = client.db()
 
     if (!slug) {
-      const posts = await db.collection('posts').find()
+      const posts = await db.collection('posts').aggregate([
+        {
+          $lookup: {
+            from: 'users',
+            localField: 'authorId',
+            foreignField: '_id',
+            as: 'author',
+          },
+        },
+        {
+          $lookup: {
+            from: 'images',
+            localField: 'coverId',
+            foreignField: '_id',
+            as: 'cover',
+          },
+        },
+        { $unwind: { path: '$author', preserveNullAndEmptyArrays: true } },
+        { $unwind: { path: '$cover', preserveNullAndEmptyArrays: true } },
+      ])
       if (page) {
         res.status(200).json({
           result: await posts
