@@ -1,4 +1,5 @@
 import ReactPlayer from 'react-player/lazy'
+import Image from 'next/image'
 
 const components = {
   h1({ children }) {
@@ -23,11 +24,13 @@ const components = {
     if (node.children[0].tagName === 'img') {
       const image = node.children[0].properties
       return (
-        <div className="h-80 w-full mb-3">
-          <img
+        <div className="h-80 w-full relative mb-3">
+          <Image
             src={image.src}
             alt={image.alt}
-            className="w-full h-full object-cover rounded shadow"
+            layout="fill"
+            objectFit="cover"
+            className="rounded shadow"
           />
         </div>
       )
@@ -54,7 +57,7 @@ const components = {
         </a>
       )
     }
-    return <p className="mb-3">{children}</p>
+    return <p className="mb-3 text-justify">{children}</p>
   },
 }
 
