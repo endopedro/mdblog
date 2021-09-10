@@ -4,12 +4,12 @@ import Default from './Default'
 import Medium from './Medium'
 import Small from './Small'
 
-const PostCard = ({ className, sm, md }) => {
+const PostCard = ({ className, post, sm, md }) => {
   return (
     <div className={className}>
-      {sm && <Small />}
-      {md && <Medium />}
-      {!md && !sm && <Default />}
+      {sm && <Small {...post} />}
+      {md && <Medium {...post} />}
+      {!md && !sm && <Default {...post} />}
     </div>
   )
 }
