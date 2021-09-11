@@ -12,9 +12,9 @@ const Post = ({ post }) => {
   useEffect(
     () =>
       appApi()
-        .getRelated(post._id)
+        .getRelatedPosts(post._id)
         .then(({ data }) => setRelated(data.result)),
-    []
+    [post]
   )
 
   return (
