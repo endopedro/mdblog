@@ -9,6 +9,7 @@ import SubFooter from '../components/SubFooter'
 import { appApi } from '../services/api'
 
 const Home = ({ posts }) => {
+  console.log(posts)
   return (
     <Layout blogName="Minimalister">
       <Hero className="mt-7 mb-10" />
@@ -22,8 +23,8 @@ const Home = ({ posts }) => {
           <PostCard key={post._id} className="mb-10 md:mb-0" post={post} />
         ))}
       </div>
-      <hr className="border-t border-woodsmoke-400 mb-8" />
-      <SubFooter className="sm:mb-8" />
+      {/* <hr className="border-t border-woodsmoke-400 mb-8" />
+      <SubFooter className="sm:mb-8" posts={posts} /> */}
     </Layout>
   )
 }

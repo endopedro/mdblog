@@ -2,18 +2,13 @@ import React from 'react'
 
 import PostCard from './PostCard'
 
-const SubFooter = ({ className }) => {
+const SubFooter = ({ className, posts, title }) => {
   return (
     <div className={className}>
-      <h3 className="bg-woodsmoke-500 p-4 font-bold text-md mb-7">
-        FEATURED POSTS
-      </h3>
+      <h3 className="bg-woodsmoke-500 p-4 font-bold text-md mb-7">{title}</h3>
       <div className="grid md:grid-cols-2 md:gap-10">
-        {[1, 2].map((item) => (
-          <PostCard key={item} sm className="mb-10 md:mb-0" />
-        ))}
-        {[1, 2].map((item) => (
-          <PostCard key={item} sm className="mb-10 md:mb-0" />
+        {posts.map((post) => (
+          <PostCard key={post._id} sm className="mb-10 md:mb-0" post={post} />
         ))}
       </div>
     </div>
