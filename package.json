@@ -13,8 +13,6 @@
     "autoprefixer": "^10.3.1",
     "axios": "^0.21.4",
     "classnames": "^2.3.1",
-    "cloudinary": "^1.26.3",
-    "mongodb": "^4.1.1",
     "next": "11.1.0",
     "nprogress": "^0.2.0",
     "postcss": "^8.3.6",
