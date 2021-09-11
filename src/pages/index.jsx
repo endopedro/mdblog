@@ -8,11 +8,10 @@ import SubFooter from '../components/SubFooter'
 
 import { appApi } from '../services/api'
 
-const Home = ({ posts }) => {
-  console.log(posts)
+const Home = ({ posts, settings }) => {
   return (
-    <Layout blogName="Minimalister">
-      <Hero className="mt-7 mb-10" />
+    <Layout blogName={settings.name}>
+      <Hero className="mt-7 mb-10" settings={settings} />
       {!posts.length && (
         <h3 className="text-2xl flex justify-center items-center">
           No posts yet... <IoIosSad className="ml-4" />
@@ -30,12 +29,18 @@ const Home = ({ posts }) => {
 }
 
 export async function getStaticProps() {
-  const posts = await appApi()
-    .getPosts()
-    .then(({ data }) => data.result)
-    .catch((err) => [])
+  const data = await Promise.all([
+    appApi()
+      .getPosts()
+      .then(({ data }) => data.result)
+      .catch((err) => []),
+    appApi()
+      .getSettings()
+      .then(({ data }) => data.result)
+      .catch((err) => null),
+  ]).then((values) => values)
 
-  return { props: { posts }, revalidate: 600 }
+  return { props: { posts: data[0], settings: data[1] }, revalidate: 600 }
 }
 
 export default Home

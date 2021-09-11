@@ -7,7 +7,7 @@ import Content from '../../domain/post/Content'
 
 import { appApi } from '../../services/api'
 
-const Post = ({ post }) => {
+const Post = ({ post, settings }) => {
   const [related, setRelated] = useState(null)
   useEffect(
     () =>
@@ -18,7 +18,7 @@ const Post = ({ post }) => {
   )
 
   return (
-    <Layout blogName="Minimalister">
+    <Layout blogName={settings.name}>
       <div className="px-3 sm:px-0">
         <FeaturedImage {...post} />
         <Content {...post} />
@@ -31,14 +31,23 @@ const Post = ({ post }) => {
 }
 
 export async function getStaticProps(context) {
-  const post = await appApi()
-    .getPost(context.params.slug)
-    .then(({ data }) => data.result)
-    .catch(() => null)
+  const data = await Promise.all([
+    appApi()
+      .getPost(context.params.slug)
+      .then(({ data }) => data.result)
+      .catch(() => null),
+    appApi()
+      .getSettings()
+      .then(({ data }) => data.result)
+      .catch((err) => null),
+  ]).then((values) => values)
+
+  const post = data[0]
+  const settings = data[1]
 
   if (!post) return { notFound: true }
 
-  return { props: { post } }
+  return { props: { post: post, settings: settings } }
 }
 
 export async function getStaticPaths() {

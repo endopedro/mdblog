@@ -16,7 +16,7 @@ const Layout = ({ children, page, blogName }) => {
           {children}
         </div>
       </main>
-      <Footer />
+      <Footer blogName={blogName} />
     </>
   )
 }

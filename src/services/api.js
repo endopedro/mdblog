@@ -12,6 +12,7 @@ const appApi = () => ({
   getPost: (slug) => api.get('/posts', { params: { slug: slug } }),
   getPosts: () => api.get('/posts'),
   getRelatedPosts: (id) => api.get('/posts', { params: { related: id } }),
+  getSettings: (id) => api.get('/settings'),
 })
 
 export { appApi }
