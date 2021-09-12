@@ -6,6 +6,7 @@ const Hero = ({ className, settings }) => {
     <div className={className}>
       <div className="h-64 w-full relative flex items-end">
         <Image
+          className="opacity-30"
           src={settings.cover.secure_url}
           layout="fill"
           objectFit="cover"
