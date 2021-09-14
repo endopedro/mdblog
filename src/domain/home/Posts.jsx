@@ -16,7 +16,6 @@ const Posts = ({ initialPosts, totalPages }) => {
         .getPosts(page)
         .then(({ data }) => {
           setPosts((prevState) => [...prevState, ...data.result])
-          console.log('data.results', data.result)
           if (page == data.pages) setHasMore(false)
         })
         .catch((err) => [])
