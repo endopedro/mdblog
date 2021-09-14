@@ -13,6 +13,8 @@ const appApi = () => ({
   getPosts: (page) => api.get('/posts', { params: { page: page } }),
   getRelatedPosts: (id) => api.get('/posts', { params: { related: id } }),
   getSettings: (id) => api.get('/settings'),
+  getPage: (slug) => api.get('/pages', { params: { slug: slug } }),
+  getMainUser: () => api.get('/users', { params: { main_user: true } }),
 })
 
 export { appApi }
