@@ -39,7 +39,7 @@ const components = {
       const { href, title } = node.children[0].properties
       if (href.includes('youtube')) {
         return (
-          <div className="relative" style={{ paddingTop: '56.25%' }}>
+          <div className="relative mb-3" style={{ paddingTop: '56.25%' }}>
             <ReactPlayer
               style={{ top: 0, left: 0 }}
               className="mx-auto rounded overflow-hidden shadow absolute"

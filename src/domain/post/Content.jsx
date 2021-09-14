@@ -1,14 +1,13 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
 import { BiPurchaseTag } from 'react-icons/bi'
 import Image from 'next/image'
 
 import formatDate from '../../utils/formatDate'
-import mdComponents from '../../utils/mdComponents'
+import MdContent from '../../components/MdContent'
 
 const Content = ({ createdAt, author, category, title, tags, content }) => {
   return (
-    <div className="bg-woodsmoke-500 px-4 py-7 md:p-7 mb-10">
+    <div className="bg-woodsmoke-500 px-4 py-7 md:px-7 mb-10">
       <div className="flex mb-3">
         <p className="text-xs text-gray-500 mr-4">
           on <b>{formatDate(createdAt)}</b>
@@ -23,7 +22,7 @@ const Content = ({ createdAt, author, category, title, tags, content }) => {
 
       <h1 className="text-2xl sm:text-3xl font-bold mb-3">{title}</h1>
 
-      <ReactMarkdown components={mdComponents}>{content}</ReactMarkdown>
+      <MdContent children={content} />
 
       <hr className="border-woodsmoke-200 my-5" />
 
