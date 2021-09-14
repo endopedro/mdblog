@@ -31,7 +31,10 @@ const Content = ({ createdAt, author, category, title, tags, content }) => {
         <div className="flex items-center mb-5">
           <BiPurchaseTag className="mr-3 mb-2" />
           {tags.map((tag) => (
-            <span className="mr-2 mb-2 px-3 py-1 bg-woodsmoke-600 border border-woodsmoke-300 rounded-full">
+            <span
+              key={tag}
+              className="mr-2 mb-2 px-3 py-1 bg-woodsmoke-600 border border-woodsmoke-300 rounded-full"
+            >
               {tag}
             </span>
           ))}
