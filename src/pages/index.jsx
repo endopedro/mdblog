@@ -11,7 +11,12 @@ import { appApi } from '../services/api'
 const Home = ({ posts, totalPages, settings }) => {
   return (
     <Layout blogName={settings.name}>
-      <Hero className="mt-7 mb-10" settings={settings} />
+      <Hero
+        className="mt-7 mb-10"
+        cover={settings.cover.secure_url}
+        title={`Welcome to ${settings.name}!`}
+        subtitle={settings.title}
+      />
       {!posts.length && (
         <h3 className="text-2xl flex justify-center items-center">
           No posts yet... <IoIosSad className="ml-4" />
