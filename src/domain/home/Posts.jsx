@@ -22,6 +22,15 @@ const Posts = ({ initialPosts, totalPages }) => {
     }
   }
 
+  const PostPicker = ({ even, odd }) => (
+    <div>
+      {posts.map((post, i) => {
+        if ((even && i % 2 == 0) || (odd && i % 2 != 0))
+          return <PostCard key={post._id} className="mb-10" post={post} />
+      })}
+    </div>
+  )
+
   return (
     <InfiniteScroll
       pageStart={1}
@@ -36,6 +45,7 @@ const Posts = ({ initialPosts, totalPages }) => {
           height={30}
           width={30}
           className="mx-auto mb-8"
+          key="loader"
         />
       }
     >
@@ -43,29 +53,15 @@ const Posts = ({ initialPosts, totalPages }) => {
         {isMobile ? (
           <>
             {posts.map((post) => (
-              <div>
-                <PostCard key={post._id} post={post} className="mb-10" />
+              <div key={post._id}>
+                <PostCard post={post} className="mb-10" />
               </div>
             ))}
           </>
         ) : (
           <>
-            <div>
-              {posts.map((post, i) => {
-                if (i % 2 == 0)
-                  return (
-                    <PostCard key={post._id} className="mb-10" post={post} />
-                  )
-              })}
-            </div>
-            <div>
-              {posts.map((post, i) => {
-                if (i % 2 != 0)
-                  return (
-                    <PostCard key={post._id} className="mb-10" post={post} />
-                  )
-              })}
-            </div>
+            <PostPicker even />
+            <PostPicker odd />
           </>
         )}
       </div>

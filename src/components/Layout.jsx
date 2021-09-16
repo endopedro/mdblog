@@ -11,7 +11,7 @@ const Layout = ({ children, page, settings }) => {
       <Head>
         <title>
           {cx(
-            page.replace(/\w\S*/g, (w) =>
+            page?.replace(/\w\S*/g, (w) =>
               w.replace(/^\w/, (c) => c.toUpperCase())
             ),
             { '|': !!page },
