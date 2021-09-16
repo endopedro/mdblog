@@ -6,7 +6,7 @@ import Hero from '../components/Hero'
 import MdContent from '../components/MdContent'
 import { appApi } from '../services/api'
 
-const about = ({ page, settings, author }) => (
+const about = ({ page, settings }) => (
   <Layout settings={settings} page={page.slug}>
     <Hero cover={page.cover.secure_url} title={page.title} className="my-7" />
     <div className="mb-10 px-5 md:p-0">
@@ -24,29 +24,20 @@ const about = ({ page, settings, author }) => (
               className="border border-woodsmoke-50"
             />
           </div>
-
-          <div className="flex justify-center flex-col">
-            <h4 className="text-sm font-bold">This blog is sustained by</h4>
-            <h5 className="uppercase">{author.name}</h5>
-          </div>
         </div>
       </div>
     </div>
   </Layout>
 )
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
   const data = await Promise.all([
     appApi()
-      .getPage('about')
+      .getPage(context.params.slug)
       .then(({ data }) => data.result)
       .catch((err) => null),
     appApi()
       .getSettings()
-      .then(({ data }) => data.result)
-      .catch((err) => null),
-    appApi()
-      .getMainUser()
       .then(({ data }) => data.result)
       .catch((err) => null),
   ]).then((values) => values)
@@ -57,9 +48,21 @@ export async function getStaticProps() {
     props: {
       page: data[0],
       settings: data[1],
-      author: data[2],
     },
   }
+}
+
+export async function getStaticPaths() {
+  const pages = await appApi()
+    .getPages()
+    .then(({ data }) => data.result)
+    .catch((err) => [])
+
+  const paths = pages.map((page) => ({
+    params: { slug: page.slug },
+  }))
+
+  return { paths, fallback: 'blocking' }
 }
 
 export default about

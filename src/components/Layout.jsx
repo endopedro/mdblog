@@ -1,22 +1,31 @@
 import React from 'react'
 import Head from 'next/head'
+import cx from 'classnames'
 
 import Navbar from './Navbar'
 import Footer from './Footer'
 
-const Layout = ({ children, page, blogName }) => {
+const Layout = ({ children, page, settings }) => {
   return (
     <>
       <Head>
-        <title>{blogName}</title>
+        <title>
+          {cx(
+            page.replace(/\w\S*/g, (w) =>
+              w.replace(/^\w/, (c) => c.toUpperCase())
+            ),
+            { '|': !!page },
+            settings.name
+          )}
+        </title>
       </Head>
       <main className="relative">
-        <Navbar page={page} blogName={blogName} />
+        <Navbar page={page} settings={settings} />
         <div className="container mx-auto md:px-2 lg:px-8 max-w-4xl pt-14 sm:pt-16">
           {children}
         </div>
       </main>
-      <Footer blogName={blogName} />
+      <Footer blogName={settings.name} />
     </>
   )
 }

@@ -4,16 +4,16 @@ import cx from 'classnames'
 
 const NavItem = ({ item, page, sm }) => {
   return (
-    <Link href={item.link}>
+    <Link href={item.slug}>
       <a
         className={cx(
-          'flex items-center px-3 py-2 rounded-md font-medium transition duration-300',
+          'flex items-center px-3 py-2 rounded-md font-medium transition duration-300 capitalize',
           `text-${sm ? 'sm' : 'base'}`,
-          item.label == page ? 'text-blue-300' : 'hover:text-blue-400'
+          item.slug == page ? 'text-blue-300' : 'hover:text-blue-400'
         )}
-        aria-current={item.label == page ? 'page' : undefined}
+        aria-current={item.slug == page ? 'page' : undefined}
       >
-        {item.label}
+        {item.slug}
       </a>
     </Link>
   )

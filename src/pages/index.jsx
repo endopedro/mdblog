@@ -10,7 +10,7 @@ import { appApi } from '../services/api'
 
 const Home = ({ posts, totalPages, settings }) => {
   return (
-    <Layout blogName={settings.name}>
+    <Layout settings={settings}>
       <Hero
         className="mt-7 mb-10"
         cover={settings.cover.secure_url}

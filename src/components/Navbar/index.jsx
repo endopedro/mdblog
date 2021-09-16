@@ -6,7 +6,7 @@ import { navItems } from './items'
 import MobileMenuButton from './MobileMenuButton'
 import NavItem from './NavItem'
 
-const Navbar = ({ page, blogName }) => (
+const Navbar = ({ page, settings }) => (
   <Disclosure
     as="nav"
     className="bg-woodsmoke-500 mb-2 absolute z-10 w-full top-0"
@@ -21,13 +21,13 @@ const Navbar = ({ page, blogName }) => (
             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
               <div className="flex-shrink-0 flex items-center">
                 <Link href={'/'}>
-                  <a className="text-2xl font-bold">{blogName}</a>
+                  <a className="text-2xl font-bold">{settings.name}</a>
                 </Link>
               </div>
               <div className="hidden sm:block sm:ml-6">
                 <div className="flex space-x-4">
-                  {navItems.map((item) => (
-                    <NavItem item={item} page={page} sm key={item.label} />
+                  {settings.pages.map((item) => (
+                    <NavItem item={item} page={page} sm key={item._id} />
                   ))}
                 </div>
               </div>
@@ -44,7 +44,7 @@ const Navbar = ({ page, blogName }) => (
         >
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => (
+              {settings.pages.map((item) => (
                 <NavItem item={item} page={page} key={item.label} />
               ))}
             </div>
