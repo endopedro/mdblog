@@ -18,7 +18,7 @@ const Post = ({ post, settings }) => {
   )
 
   return (
-    <Layout blogName={settings.name}>
+    <Layout settings={settings}>
       <div>
         <FeaturedImage {...post} />
         <Content {...post} />
