@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'next/link'
 import { Disclosure, Transition } from '@headlessui/react'
 
-import { navItems } from './items'
 import MobileMenuButton from './MobileMenuButton'
 import NavItem from './NavItem'
 
