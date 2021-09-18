@@ -11,9 +11,10 @@ const DefaultPostCard = ({
   author,
   excerpt,
   slug,
+  className,
 }) => {
   return (
-    <>
+    <div className={className}>
       <Link href={`/post/${slug}`}>
         <div className="h-40 w-full relative cursor-pointer">
           <Image src={cover.secure_url} layout="fill" objectFit="cover" />
@@ -45,7 +46,7 @@ const DefaultPostCard = ({
           </h5>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
