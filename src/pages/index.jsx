@@ -62,7 +62,7 @@ const Home = ({ posts, totalPages, settings }) => {
 export async function getStaticProps() {
   const data = await Promise.all([
     appApi()
-      .getPosts({})
+      .getPosts()
       .then(({ data }) => data)
       .catch((err) => []),
     appApi()

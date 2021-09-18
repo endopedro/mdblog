@@ -10,13 +10,13 @@ const api = axios.create({
 
 const appApi = () => ({
   getPost: (slug) => api.get('/posts', { params: { slug: slug } }),
-  getPosts: ({ page, author, category, search }) =>
+  getPosts: (props) =>
     api.get('/posts', {
       params: {
-        page: page,
-        author: author,
-        category: category,
-        search: search,
+        page: props?.page,
+        author: props?.author,
+        category: props?.category,
+        search: props?.search,
       },
     }),
   getRelatedPosts: (id) => api.get('/posts', { params: { related: id } }),
