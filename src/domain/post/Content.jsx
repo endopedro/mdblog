@@ -1,6 +1,7 @@
 import React from 'react'
 import { BiPurchaseTag } from 'react-icons/bi'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import formatDate from '../../utils/formatDate'
 import MdContent from '../../components/MdContent'
@@ -13,7 +14,14 @@ const Content = ({ createdAt, author, category, title, tags, content }) => {
           on <b>{formatDate(createdAt)}</b>
         </p>
         <p className="text-xs text-gray-500 hidden sm:block mr-4">
-          by <b>{author.name}</b>
+          by
+          <Link href={`/author/${author.username}`} passHref>
+            <a>
+              <b className="ml-1 hover:text-blue-400 transition duration-300">
+                {author.name}
+              </b>
+            </a>
+          </Link>
         </p>
         <p className="text-xs text-gray-500">
           in <b>{category.label}</b>
@@ -52,7 +60,13 @@ const Content = ({ createdAt, author, category, title, tags, content }) => {
 
         <div className="flex justify-center flex-col">
           <h4 className="text-sm font-bold">written by</h4>
-          <h5 className="uppercase">{author.name}</h5>
+          <Link href={`/author/${author.username}`} passHref>
+            <a>
+              <h5 className="uppercase hover:text-blue-400 transition duration-300">
+                {author.name}
+              </h5>
+            </a>
+          </Link>
         </div>
       </div>
     </div>

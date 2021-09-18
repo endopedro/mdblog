@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import Layout from '../components/Layout'
 import Hero from '../components/Hero'
@@ -27,7 +28,13 @@ const about = ({ page, settings, author }) => (
 
           <div className="flex justify-center flex-col">
             <h4 className="text-sm font-bold">This blog is sustained by</h4>
-            <h5 className="uppercase">{author.name}</h5>
+            <Link href={`/author/${author.username}`} passHref>
+              <a>
+                <h5 className="uppercase hover:text-blue-400 transition duration-300">
+                  {author.name}
+                </h5>
+              </a>
+            </Link>
           </div>
         </div>
       </div>
