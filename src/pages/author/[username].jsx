@@ -53,7 +53,7 @@ export async function getStaticProps(context) {
       .then(({ data }) => data.result)
       .catch((err) => null),
     appApi()
-      .getPosts({ ...(author && { author: author }) })
+      .getPosts({ author: context.params.username })
       .then(({ data }) => data)
       .catch((err) => []),
   ]).then((values) => values)
