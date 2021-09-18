@@ -52,7 +52,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   const posts = await appApi()
-    .getPosts()
+    .getPosts({})
     .then(({ data }) => data.result)
     .catch((err) => [])
 
