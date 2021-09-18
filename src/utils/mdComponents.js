@@ -52,8 +52,12 @@ const components = {
         )
       }
       return (
-        <a className="underline" target="_blank" href={href}>
-          {title}
+        <a
+          className="underline hover:text-blue-400 transition duration-300 text-justify"
+          target="_blank"
+          href={href}
+        >
+          <p className="mb-3">{children}</p>
         </a>
       )
     }
