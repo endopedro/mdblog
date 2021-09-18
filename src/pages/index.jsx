@@ -11,7 +11,7 @@ import SubFooter from '../components/SubFooter'
 import { appApi } from '../services/api'
 
 const Home = ({ posts, totalPages, settings }) => {
-  const PostPicker = ({ even, odd }) => (
+  const PostPicker = ({ posts, even, odd }) => (
     <div>
       {posts.map((post, i) => {
         if ((even && i % 2 == 0) || (odd && i % 2 != 0))
@@ -34,7 +34,7 @@ const Home = ({ posts, totalPages, settings }) => {
         </h3>
       )}
       <Posts initialPosts={posts} totalPages={totalPages}>
-        {({ posts }) => (
+        {(posts) => (
           <div className="grid md:grid-cols-2 md:gap-10">
             {isMobile ? (
               <>
@@ -46,8 +46,8 @@ const Home = ({ posts, totalPages, settings }) => {
               </>
             ) : (
               <>
-                <PostPicker even />
-                <PostPicker odd />
+                <PostPicker posts={posts} even />
+                <PostPicker posts={posts} odd />
               </>
             )}
           </div>
