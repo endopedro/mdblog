@@ -1,19 +1,30 @@
 import React, { useState } from 'react'
-import { isMobile } from 'react-device-detect'
 import InfiniteScroll from 'react-infinite-scroller'
 import ReactLoading from 'react-loading'
 
-import PostCard from '../../components/PostCard'
-import { appApi } from '../../services/api'
+import { appApi } from '../services/api'
 
-const Posts = ({ initialPosts, totalPages }) => {
+const Posts = ({
+  children,
+  initialPosts,
+  totalPages,
+  author,
+  search,
+  category,
+  className,
+}) => {
   const [posts, setPosts] = useState(initialPosts)
   const [hasMore, setHasMore] = useState(true)
 
   const fetchPosts = async (page) => {
     if (hasMore) {
       await appApi()
-        .getPosts(page)
+        .getPosts({
+          page: page,
+          ...(author && { author: author }),
+          ...(search && { search: search }),
+          ...(category && { category: category }),
+        })
         .then(({ data }) => {
           setPosts((prevState) => [...prevState, ...data.result])
           if (page == data.pages) setHasMore(false)
@@ -22,17 +33,9 @@ const Posts = ({ initialPosts, totalPages }) => {
     }
   }
 
-  const PostPicker = ({ even, odd }) => (
-    <div>
-      {posts.map((post, i) => {
-        if ((even && i % 2 == 0) || (odd && i % 2 != 0))
-          return <PostCard key={post._id} className="mb-10" post={post} />
-      })}
-    </div>
-  )
-
   return (
     <InfiniteScroll
+      className={className}
       pageStart={1}
       loadMore={async (page) => {
         if (page <= totalPages) await fetchPosts(page)
@@ -49,22 +52,7 @@ const Posts = ({ initialPosts, totalPages }) => {
         />
       }
     >
-      <div className="grid md:grid-cols-2 md:gap-10">
-        {isMobile ? (
-          <>
-            {posts.map((post) => (
-              <div key={post._id}>
-                <PostCard post={post} className="mb-10" />
-              </div>
-            ))}
-          </>
-        ) : (
-          <>
-            <PostPicker even />
-            <PostPicker odd />
-          </>
-        )}
-      </div>
+      {children(posts)}
     </InfiniteScroll>
   )
 }
