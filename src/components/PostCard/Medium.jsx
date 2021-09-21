@@ -4,7 +4,9 @@ import Image from 'next/image'
 import cx from 'classnames'
 
 const MediumPostCard = ({ cover, slug, author, title, className }) => (
-  <div className={cx('h-52 w-full relative', className)}>
+  <div
+    className={cx('h-52 w-full relative rounded-lg overflow-hidden', className)}
+  >
     <Image src={cover.secure_url} layout="fill" objectFit="cover" />
     <div className="absolute h-full w-full top-0 opacity-0 hover:opacity-100 transition duration-300 ease-in-out">
       <div className="bg-woodsmoke-500 p-4 shadow absolute bottom-5">

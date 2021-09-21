@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import Layout from '../../components/Layout'
+import Portlet, { PortletBody } from '../../components/Portlet'
 import SubFooter from '../../components/SubFooter'
 import FeaturedImage from '../../domain/post/FeaturedImage'
 import Content from '../../domain/post/Content'
@@ -19,10 +20,12 @@ const Post = ({ post, settings }) => {
 
   return (
     <Layout settings={settings}>
-      <div>
+      <Portlet className="my-7">
         <FeaturedImage {...post} />
-        <Content {...post} />
-      </div>
+        <PortletBody>
+          <Content {...post} />
+        </PortletBody>
+      </Portlet>
       {related && (
         <SubFooter className="sm:mb-8" title="RELATED POSTS" posts={related} />
       )}

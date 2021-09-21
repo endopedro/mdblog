@@ -16,7 +16,12 @@ const SmallPostCard = ({
   <div className={cx('flex mx-3 sm:mx-0', className)}>
     <Link href={`/post/${slug}`} passHref>
       <a className="h-24 w-1/3 flex-shrink-0 relative mr-3 cursor-pointer">
-        <Image src={cover.secure_url} layout="fill" objectFit="cover" />
+        <Image
+          src={cover.secure_url}
+          layout="fill"
+          objectFit="cover"
+          className="rounded-lg"
+        />
         <div className="absolute h-full w-full top-0 bg-black opacity-0 hover:opacity-50 transition duration-300 ease-in-out" />
       </a>
     </Link>
