@@ -3,30 +3,18 @@ import Image from 'next/image'
 
 import Layout from '../components/Layout'
 import Hero from '../components/Hero'
+import Portlet, { PortletBody } from '../components/Portlet'
 import MdContent from '../components/MdContent'
 import { appApi } from '../services/api'
 
 const about = ({ page, settings }) => (
   <Layout settings={settings} page={page.slug}>
     <Hero cover={page.cover.secure_url} title={page.title} className="my-7" />
-    <div className="mb-10 px-5 md:p-0">
-      <div className="mb-7">
+    <Portlet className="mb-7">
+      <PortletBody className="pb-1 pt-5">
         <MdContent children={page.content} />
-      </div>
-      <div className="border border-woodsmoke-400 p-7 md:p-7">
-        <div className="flex items-center">
-          <div className="h-16 w-16 md:h-20 md:w-20 mr-2">
-            <Image
-              src={author.picture.secure_url}
-              height={80}
-              width={80}
-              objectFit="cover"
-              className="border border-woodsmoke-50"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+      </PortletBody>
+    </Portlet>
   </Layout>
 )
 
