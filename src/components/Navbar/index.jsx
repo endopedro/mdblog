@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Disclosure, Transition } from '@headlessui/react'
+import cx from 'classnames'
 
 import MobileMenuButton from './MobileMenuButton'
 import NavItem from './NavItem'
@@ -11,7 +12,7 @@ const Navbar = ({ page, settings }) => (
     className="border-b border-woodsmoke-300 mb-2 absolute z-10 w-full top-0"
   >
     {({ open }) => (
-      <>
+      <div className="bg-woodsmoke-600">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="relative flex items-center justify-between h-14">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -51,7 +52,7 @@ const Navbar = ({ page, settings }) => (
             </div>
           </Disclosure.Panel>
         </Transition>
-      </>
+      </div>
     )}
   </Disclosure>
 )
