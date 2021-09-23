@@ -1,8 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 import { Disclosure, Transition } from '@headlessui/react'
-import cx from 'classnames'
 
+import SearchInput from '../SearchInput'
 import MobileMenuButton from './MobileMenuButton'
 import NavItem from './NavItem'
 
@@ -33,6 +33,7 @@ const Navbar = ({ page, settings }) => (
                   ))}
                 </div>
               </div>
+              <SearchInput className="ml-auto" />
             </div>
           </div>
         </div>
