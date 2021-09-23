@@ -33,7 +33,7 @@ const Navbar = ({ page, settings }) => (
                   ))}
                 </div>
               </div>
-              <SearchInput className="ml-auto" />
+              <SearchInput className="ml-auto hidden sm:block" />
             </div>
           </div>
         </div>
@@ -51,6 +51,7 @@ const Navbar = ({ page, settings }) => (
                 <NavItem item={item} page={page} key={item._id} />
               ))}
             </div>
+            <SearchInput className="p-2" />
           </Disclosure.Panel>
         </Transition>
       </div>
