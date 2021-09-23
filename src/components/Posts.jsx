@@ -14,7 +14,7 @@ const Posts = ({
   className,
 }) => {
   const [posts, setPosts] = useState(initialPosts)
-  const [hasMore, setHasMore] = useState(true)
+  const [hasMore, setHasMore] = useState(totalPages > 1 ? true : false)
 
   const fetchPosts = async (page) => {
     if (hasMore) {
