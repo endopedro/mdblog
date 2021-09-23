@@ -47,7 +47,7 @@ const Posts = ({
           color="#29d"
           height={30}
           width={30}
-          className="mx-auto mb-8"
+          className="mx-auto my-8"
           key="loader"
         />
       }

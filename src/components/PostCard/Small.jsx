@@ -13,7 +13,7 @@ const SmallPostCard = ({
   createdAt,
   className,
 }) => (
-  <div className={cx('flex mx-3 sm:mx-0', className)}>
+  <div className={cx('flex', className)}>
     <Link href={`/post/${slug}`} passHref>
       <a className="h-24 w-1/3 flex-shrink-0 relative mr-3 cursor-pointer">
         <Image

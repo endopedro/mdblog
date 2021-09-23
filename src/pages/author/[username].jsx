@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import cx from 'classnames'
 
 import Layout from '../../components/Layout'
 import Portlet, { PortletBody, PortletHeader } from '../../components/Portlet'
@@ -9,7 +10,7 @@ import { appApi } from '../../services/api'
 
 const authorPage = ({ settings, author, posts, totalPages }) => (
   <Layout settings={settings}>
-    <Portlet bg className="my-7">
+    <Portlet bg className="my-5 md:my-7">
       <PortletBody>
         <div className="h-24 w-24 md:h-32 md:w-32 mx-auto mb-4">
           <Image
@@ -27,16 +28,18 @@ const authorPage = ({ settings, author, posts, totalPages }) => (
 
     <Portlet className="mb-7">
       <PortletHeader>
-        <span className="uppercase">POSTS BY {author.name}</span>
+        Posts by <span className="uppercase">{author.name}</span>
       </PortletHeader>
-      <PortletBody className="pb-2">
+      <PortletBody>
         <Posts
           initialPosts={posts}
           totalPages={totalPages}
           author={author.username}
         >
           {(posts) =>
-            posts.map((post) => <PostCard strip post={post} className="mb-4" />)
+            posts.map((post, i) => (
+              <PostCard strip post={post} className={cx({ 'mt-4': i > 0 })} />
+            ))
           }
         </Posts>
       </PortletBody>

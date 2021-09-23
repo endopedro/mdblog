@@ -26,9 +26,7 @@ const Post = ({ post, settings }) => {
           <Content {...post} />
         </PortletBody>
       </Portlet>
-      {related && (
-        <SubFooter className="sm:mb-8" title="RELATED POSTS" posts={related} />
-      )}
+      {related && <SubFooter title="RELATED POSTS" posts={related} />}
     </Layout>
   )
 }

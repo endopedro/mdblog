@@ -11,13 +11,13 @@ import { appApi } from '../services/api'
 const about = ({ page, settings, author }) => (
   <Layout settings={settings} page={page.slug}>
     <Hero cover={page.cover.secure_url} title={page.title} className="my-7" />
-    <Portlet className="mb-7">
+    <Portlet>
       <PortletBody className="pb-1 pt-5">
         <MdContent children={page.content} />
       </PortletBody>
     </Portlet>
     {page.slug == 'about' && (
-      <Portlet className="mb-10">
+      <Portlet className="mt-5 md:mt-7">
         <div className="flex items-center">
           <div className="h-16 w-16 md:h-20 md:w-20 mr-5">
             <Image

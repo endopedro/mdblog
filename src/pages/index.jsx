@@ -1,6 +1,7 @@
 import React from 'react'
 import { IoIosSad } from 'react-icons/io'
 import { isMobile } from 'react-device-detect'
+import cx from 'classnames'
 
 import Layout from '../components/Layout'
 import Hero from '../components/Hero'
@@ -15,7 +16,13 @@ const Home = ({ posts, totalPages, settings }) => {
     <div>
       {posts.map((post, i) => {
         if ((even && i % 2 == 0) || (odd && i % 2 != 0))
-          return <PostCard key={post._id} className="mb-10" post={post} />
+          return (
+            <PostCard
+              className={cx({ 'mt-10': i > 1 })}
+              key={post._id}
+              post={post}
+            />
+          )
       })}
     </div>
   )
@@ -38,9 +45,12 @@ const Home = ({ posts, totalPages, settings }) => {
           <div className="grid md:grid-cols-2 md:gap-10">
             {isMobile ? (
               <>
-                {posts.map((post) => (
+                {posts.map((post, i) => (
                   <div key={post._id}>
-                    <PostCard post={post} className="mb-10" />
+                    <PostCard
+                      post={post}
+                      className={cx({ 'mt-5': i > 0 }, i)}
+                    />
                   </div>
                 ))}
               </>
@@ -53,8 +63,6 @@ const Home = ({ posts, totalPages, settings }) => {
           </div>
         )}
       </Posts>
-      {/* <hr className="border-t border-woodsmoke-400 mb-8" />
-      <SubFooter className="sm:mb-8" posts={posts} /> */}
     </Layout>
   )
 }

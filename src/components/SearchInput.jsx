@@ -14,7 +14,7 @@ const SearchInput = ({ className }) => {
   return (
     <form onSubmit={onSubmit} className={className}>
       <div class="relative">
-        <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+        <span class="absolute inset-y-0 right-0 flex items-center pr-2">
           <button
             type="submit"
             class="p-1 focus:outline-none focus:shadow-outline"
@@ -24,7 +24,7 @@ const SearchInput = ({ className }) => {
         </span>
         <input
           type="text"
-          class="py-2 text-sm bg-woodsmoke-300 rounded-md pl-10 focus:outline-none focus:bg-woodsmoke-50 transition duration-300"
+          class="py-2 text-sm bg-woodsmoke-300 rounded-md pl-5 pr-10 focus:outline-none focus:bg-woodsmoke-50 transition duration-300 w-full"
           placeholder="Search..."
           autocomplete="off"
           onChange={(e) => setSearchTerm(e.target.value)}

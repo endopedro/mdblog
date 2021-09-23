@@ -21,7 +21,7 @@ const Layout = ({ children, page, settings }) => {
       </Head>
       <main className="relative">
         <Navbar page={page} settings={settings} />
-        <div className="container mx-auto md:px-2 lg:px-8 max-w-4xl pt-14 sm:pt-16">
+        <div className="container mx-auto px-2 lg:px-8 max-w-4xl pt-14 sm:pt-16 mb-5 sm:mb-7">
           {children}
         </div>
       </main>

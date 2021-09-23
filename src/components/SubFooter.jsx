@@ -1,4 +1,5 @@
 import React from 'react'
+import cx from 'classnames'
 
 import Portlet, { PortletBody, PortletHeader } from './Portlet'
 import PostCard from './PostCard'
@@ -9,9 +10,14 @@ const SubFooter = ({ className, posts, title }) => (
       <h3>{title}</h3>
     </PortletHeader>
     <PortletBody>
-      <div className="grid md:grid-cols-2 md:gap-10">
-        {posts.map((post) => (
-          <PostCard key={post._id} sm className="mb-10 md:mb-0" post={post} />
+      <div className="md:grid md:grid-cols-2 md:gap-5">
+        {posts.map((post, i) => (
+          <PostCard
+            key={post._id}
+            className={cx({ 'mt-5 sm:mt-0': i != 0 })}
+            post={post}
+            sm
+          />
         ))}
       </div>
     </PortletBody>

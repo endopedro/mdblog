@@ -5,8 +5,8 @@ import cx from 'classnames'
 
 import formatDate from '../../utils/formatDate'
 
-const Strip = ({ cover, slug, author, title, createdAt, className }) => (
-  <div className={cx('flex mx-3 sm:mx-0', className)}>
+const Strip = ({ cover, slug, title, createdAt, className }) => (
+  <div className={cx('flex', className)}>
     <Link href={`/post/${slug}`}>
       <div className="h-24 w-1/3 flex-shrink-0 relative mr-3 cursor-pointer">
         <Image
