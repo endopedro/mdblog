@@ -22,6 +22,7 @@ const appApi = () => ({
   getRelatedPosts: (id) => api.get('/posts', { params: { related: id } }),
   getSettings: (id) => api.get('/settings'),
   getPage: (slug) => api.get('/pages', { params: { slug: slug } }),
+  getPages: () => api.get('/pages'),
   getMainUser: () => api.get('/users', { params: { main_user: true } }),
   getAuthors: () => api.get('/users'),
   getAuthor: (username) =>
