@@ -17,6 +17,7 @@ const appApi = () => ({
         author: props?.author,
         category: props?.category,
         search: props?.search,
+        latest: props?.latest,
       },
     }),
   getRelatedPosts: (id) => api.get('/posts', { params: { related: id } }),

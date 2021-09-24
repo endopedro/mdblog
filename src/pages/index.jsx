@@ -7,7 +7,6 @@ import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import Posts from '../components/Posts'
 import PostCard from '../components/PostCard'
-import SubFooter from '../components/SubFooter'
 
 import { appApi } from '../services/api'
 
