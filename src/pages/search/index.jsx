@@ -21,7 +21,8 @@ const Search = ({ settings }) => {
       .catch((err) => null)
 
   useEffect(() => {
-    if (search !== null) fetchPosts()
+    console.log(search)
+    if (search !== undefined) fetchPosts()
   }, [search])
 
   return (

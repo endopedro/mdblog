@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import InfiniteScroll from 'react-infinite-scroller'
 import ReactLoading from 'react-loading'
 
@@ -16,14 +16,19 @@ const Posts = ({
   const [posts, setPosts] = useState(initialPosts)
   const [hasMore, setHasMore] = useState(totalPages > 1 ? true : false)
 
+  useEffect(() => {
+    setPosts(initialPosts)
+    setHasMore(totalPages > 1 ? true : false)
+  }, [initialPosts, totalPages])
+
   const fetchPosts = async (page) => {
     if (hasMore) {
       await appApi()
         .getPosts({
           page: page,
-          ...(author && { author: author }),
-          ...(search && { search: search }),
-          ...(category && { category: category }),
+          author: author,
+          search: search,
+          category: category,
         })
         .then(({ data }) => {
           setPosts((prevState) => [...prevState, ...data.result])
