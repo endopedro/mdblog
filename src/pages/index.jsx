@@ -17,7 +17,7 @@ const Home = ({ posts, totalPages, settings }) => {
         if ((even && i % 2 == 0) || (odd && i % 2 != 0))
           return (
             <PostCard
-              className={cx({ 'mt-10': i > 1 })}
+              className={cx({ 'mt-7': i > 1 })}
               key={post._id}
               post={post}
             />
@@ -29,7 +29,7 @@ const Home = ({ posts, totalPages, settings }) => {
   return (
     <Layout settings={settings}>
       <Hero
-        className="mt-7 mb-10"
+        className="mt-7 mb-7"
         cover={settings.cover.secure_url}
         title={`Welcome to ${settings.name}!`}
         subtitle={settings.title}
@@ -41,7 +41,7 @@ const Home = ({ posts, totalPages, settings }) => {
       )}
       <Posts initialPosts={posts} totalPages={totalPages}>
         {(posts) => (
-          <div className="grid md:grid-cols-2 md:gap-10">
+          <div className="grid md:grid-cols-2 md:gap-7">
             {isMobile ? (
               <>
                 {posts.map((post, i) => (
