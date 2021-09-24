@@ -23,7 +23,11 @@ const about = ({ page, settings, author }) => {
 
   return (
     <Layout settings={settings} page={page.slug}>
-      <Hero cover={page.cover.secure_url} title={page.title} className="my-7" />
+      <Hero
+        cover={page.cover.secure_url}
+        title={page.title}
+        className="my-5 md:my-7"
+      />
       <Portlet>
         <PortletBody className="pb-1 pt-5">
           <MdContent children={page.content} />

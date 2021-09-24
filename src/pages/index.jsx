@@ -29,7 +29,7 @@ const Home = ({ posts, totalPages, settings }) => {
   return (
     <Layout settings={settings}>
       <Hero
-        className="mt-7 mb-7"
+        className="my-5 md:my-7"
         cover={settings.cover.secure_url}
         title={`Welcome to ${settings.name}!`}
         subtitle={settings.title}
