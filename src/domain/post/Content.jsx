@@ -29,7 +29,7 @@ const Content = ({ createdAt, author, category, title, tags, content }) => (
 
     <h1 className="text-2xl sm:text-3xl font-bold">{title}</h1>
 
-    <hr className="border-woodsmoke-300 my-5" />
+    <hr className="border-woodsmoke-200 my-5" />
 
     <MdContent children={content} />
 
@@ -41,7 +41,7 @@ const Content = ({ createdAt, author, category, title, tags, content }) => (
         {tags.map((tag) => (
           <span
             key={tag}
-            className="mr-2 mb-2 px-3 py-1 bg-woodsmoke-600 border border-woodsmoke-300 rounded-full"
+            className="mr-2 mb-2 px-3 py-1 bg-woodsmoke-600 border border-woodsmoke-200 rounded-full"
           >
             {tag}
           </span>

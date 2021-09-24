@@ -9,7 +9,7 @@ import NavItem from './NavItem'
 const Navbar = ({ page, settings }) => (
   <Disclosure
     as="nav"
-    className="border-b border-woodsmoke-300 mb-2 absolute z-10 w-full top-0"
+    className="border-b border-woodsmoke-200 mb-2 absolute z-10 w-full top-0"
   >
     {({ open }) => (
       <div className="bg-woodsmoke-600">

@@ -4,7 +4,7 @@ import cx from 'classnames'
 const PortLetHeader = ({ children, className }) => (
   <div
     className={cx(
-      'bg-woodsmoke-500 px-5 py-3 font-bold text-md border-b border-woodsmoke-400',
+      'bg-woodsmoke-500 px-5 py-3 font-bold text-md border-b border-woodsmoke-200',
       className
     )}
   >
