@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { NextSeo } from 'next-seo'
 
 import Layout from '../../components/Layout'
 import Portlet, { PortletBody } from '../../components/Portlet'
@@ -20,6 +21,15 @@ const Post = ({ post, settings }) => {
 
   return (
     <Layout settings={settings}>
+      <NextSeo
+        title={`${post.title} | ${settings.name}`}
+        openGraph={{
+          title: `${post.title} | ${settings.name}`,
+          url: `${process.env.NEXT_PUBLIC_SITE_URL}/post/${post.slug}`,
+          description: post.excerpt,
+          images: [{ url: post.cover.secure_url }],
+        }}
+      />
       <Portlet className="my-7">
         <FeaturedImage {...post} />
         <PortletBody>
